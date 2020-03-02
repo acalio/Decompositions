@@ -1,0 +1,4 @@
+[submodule "libs/networkit"]
+	path = libs/networkit
+	url = https://github.com/acalio/networkit.git
+	branch = feature/limited_search 
