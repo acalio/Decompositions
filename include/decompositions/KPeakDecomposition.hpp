@@ -3,7 +3,7 @@
 
 #include <networkit/centrality/Centrality.hpp>
 
-namespace NetworKit{
+namespace NetworKit {
 
 
 class KPeakDecomposition: public Centrality {
@@ -15,7 +15,6 @@ public:
 
 protected:
     
-    int h;
     int maxCore;
 
 };
