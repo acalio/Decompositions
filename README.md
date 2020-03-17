@@ -1,7 +1,4 @@
-## Decompositions 
-
-
-## Requirements
+# Requirements
 In order to compile the project you need:
 
 - A modern C++ compiler
@@ -12,18 +9,18 @@ In order to compile the project you need:
 - [Boost] program_options library
 
 
-## Installation
+# Installation
 Clone this repository as well as the networkit submodule.
     
     cd to/your/path
     git clone https://github.com/acalio/Decompositions.git
     git submodule --recursive init 
     
-**Please Note**: You are supposed to use the my forked version of networkit,
-since I made some changes to the source code that are essential to this project.
-Otherwise you can clone my branch on the networkit project, named feature/limited_search.
+**Note**: You are supposed to use my forked version of networkit.
+I made some changes to the original version that are essential to this project.
 
-In order to compile the project you have to follow the standard cmake procedure.
+
+You need to compile the project. Follow these steps.
 
     cd to/your/path
     mkdir build
@@ -32,7 +29,7 @@ In order to compile the project you have to follow the standard cmake procedure.
     make 
     
 
-## Usage
+# Usage
 The following steps are needed to run the executable. 
 
     cd to/your/executable
@@ -41,7 +38,7 @@ The following steps are needed to run the executable.
 
 - input-graph: is an edgelist file containing a directed (potentially weighted) network.
 - output-file: the file where the results are saved
-- decomposition-aglorithm: one of the available decompositions
+- decomposition-algorithm: one of the available decomposition
 
 For instance, if you need to carry out a core-decomposition:
 
