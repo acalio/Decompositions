@@ -8,6 +8,8 @@
 #include "../include/decompositions/DistanceGeneralizedCoreDecomposition.hpp"
 #include "../include/decompositions/KPeakDecomposition.hpp"
 #include "../include/decompositions/NeighborCoreness.hpp"
+#include "../include/decompositions/EdgeSupportCentrality.hpp" //<-----to remove---->
+#include "../include/decompositions/TrussDecomposition.hpp"
 #include "utility.hpp"
 #include <iostream>
 #include <memory>
@@ -15,7 +17,7 @@
 #include <fstream>
 #include <algorithm>
 #include <iterator>
-
+#include <type_traits>
 
 namespace po = boost::program_options;
 
@@ -137,10 +139,14 @@ int main(int argc, char const *argv[])
         }else if (deco_algo=="neighcoreness"){
             int depth = vm["depth"].as<int>();
             algo_ptr = std::make_unique<NetworKit::NeighborCoreness>(g, depth); 
+        }else if (deco_algo=="ktruss"){
+          g.indexEdges(true); //create edge indexes
+          algo_ptr = std::make_unique<NetworKit::TrussDecomposition>(g);
+          //          algo_ptr = std::make_unique<NetworKit::EdgeSupportCentrality>(g);
         }
 
         //execute the algorithm
-        int time = timed_run([&](){
+        int time = Utility::timed_run([&](){
             algo_ptr->run();
         });
         std::cout << "Time = " <<  time << "[s]" << std::endl;
@@ -148,13 +154,9 @@ int main(int argc, char const *argv[])
 
         //save results to the output file
         std::string output_file = vm["output"].as<std::string>();
-        std::ofstream f;
-        f.open(output_file);
-        g.forNodes([&](NetworKit::node v){
-            f << v << "," << algo_ptr->score(v) << std::endl;
-        });
-        f.close();
+        Utility::saveResult(g,*algo_ptr, output_file);
 
+        
         //free memory
         algo_ptr.reset();
 

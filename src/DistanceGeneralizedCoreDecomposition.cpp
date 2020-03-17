@@ -19,13 +19,13 @@ void DistanceGeneralizedCoreDecomposition::run(){
     std::vector<std::unordered_set<node>> reach_set;
     
     //copy the graph into another variable
-    std::unique_ptr<Graph> G_(new Graph(G));
+    std::unique_ptr<Graph> G_ = std::make_unique<Graph>(G);
 
     bool directed = G.isDirected();
 
     /* Bucket sort  by degree */
     /* 1) bucket sizes */
-    std::unique_ptr<HDegreeCentrality> hdeg(new HDegreeCentrality(G,h,true));
+    std::unique_ptr<HDegreeCentrality> hdeg = std::make_unique<HDegreeCentrality>(G,h,true);
     hdeg->run();
     G.forNodes([&](node u){
         degree[u] = hdeg->score(u);

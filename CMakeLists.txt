@@ -24,7 +24,10 @@ set(SOURCES src/main.cpp
             src/hDegreeCentrality.cpp
             src/KPeakDecomposition.cpp
             src/DistanceGeneralizedCoreDecomposition.cpp
-            src/NeighborCoreness.cpp)
+            src/NeighborCoreness.cpp
+            src/EdgeSupportCentrality.cpp
+            src/TrussDecomposition.cpp
+    )
 
 
 add_executable(deco ${SOURCES})

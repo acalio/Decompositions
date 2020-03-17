@@ -13,10 +13,6 @@ public:
 
   void run() override;
   
-private:
-
-  int compute_support(node src, node trg);
-
   
 };
 }
