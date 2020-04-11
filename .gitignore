@@ -1,4 +1,5 @@
 .vscode/
 .clang_complete
+.*
 build/
-res/
+res
