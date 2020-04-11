@@ -1,6 +1,6 @@
 # Introduction 
 
-This project is related to the followin paper:
+This project is related to the following paper:
     >  Cores matter? An analysis of graph decomposition effects on influence maximization problem  
 A. Caliò, A. Tagarelli, F. Bonchi
         
