@@ -156,10 +156,6 @@ int main(int argc, char const *argv[])
         std::string output_file = vm["output"].as<std::string>();
         Utility::saveResult(g,*algo_ptr, output_file);
 
-        
-        //free memory
-        algo_ptr.reset();
-
     }catch(std::exception &e){
         std::cout << e.what() << "\n";
         return 1;

@@ -24,20 +24,21 @@ namespace NetworKit {
     /* Bucket sort by support */
     /* 1) bucket sizes */
     //Computeompan the support for each edge
-    std::unique_ptr<EdgeSupportCentrality> esCentr = std::make_unique<EdgeSupportCentrality>(G,true);
-    esCentr->run();
+    //    std::unique_ptr<EdgeSupportCentrality> esCentr = std::make_unique<EdgeSupportCentrality>(G,true);
+    EdgeSupportCentrality es_centr(G,true);
+    es_centr.run();
     G.forEdges([&](node u, node v, edgeweight ew, edgeid eid){
-                 support[eid] = esCentr->score(static_cast<edgeid>(eid));
+                 support[eid] = es_centr.score(static_cast<edgeid>(eid));
                  ++supportBegin[support[eid]];
                });
 
-    triangles.swap(esCentr->triangles);
-    edgeIdTriangles.swap(esCentr->edgeIdTriangles);
+    triangles.swap(es_centr.triangles);
+    edgeIdTriangles.swap(es_centr.edgeIdTriangles);
     trianglePresence.resize(edgeIdTriangles.size());
     trianglePresence.assign(trianglePresence.size(),true);
 
     //remove pointer
-    esCentr.reset();
+    //    esCentr.reset();
 
     index sum = 0; // in-place prefix sum
     for (index i = 0; i<supportBegin.size(); ++i) {

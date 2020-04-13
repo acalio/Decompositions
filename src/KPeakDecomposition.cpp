@@ -17,16 +17,17 @@ void KPeakDecomposition::run(){
     std::unique_ptr<Graph> G_ = std::make_unique<Graph>(G);
 
     //crete the core-decomposition object
-    std::unique_ptr<CoreDecomposition> core_deco =  std::make_unique<CoreDecomposition>(*G_, false, true, false, CoreDecomposition::Direction::Out);
-    std::cout << G_->numberOfNodes() <<  " is Directed: "<< G_->isDirected() <<std::endl;
-
+//    std::unique_ptr<CoreDecomposition> core_deco =  std::make_unique<CoreDecomposition>(*G_, false, true, false, CoreDecomposition::Direction::Out);
+//    std::cout << G_->numberOfNodes() <<  " is Directed: "<< G_->isDirected() <<std::endl;
+    CoreDecomposition core_deco(*G_, false, true, false, CoreDecomposition::Direction::Out);
     int iteration = 0;
     do {
         //compute core decomposition
-        core_deco->run();
+        //        core_deco->run();
+        core_deco.run();
 
         //ranking, pairs <node, score> increasing order
-        std::vector<std::pair<node, double>> ranking = core_deco->ranking();
+        std::vector<std::pair<node, double>> ranking = core_deco.ranking();
 
         //get the value for the degeneracy
         double maxScore = ranking[0].second;
@@ -45,8 +46,6 @@ void KPeakDecomposition::run(){
         maxCore = maxCore>maxScore? maxCore: maxScore;
     } while(!G_->isEmpty());
 
-    //free memory
-    G_.reset();
 
     hasRun = true;
 }
