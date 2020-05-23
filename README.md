@@ -3,7 +3,7 @@
 This project is developed as part  of the following research paper:
 
 [Cores matter? An analysis of graph decomposition effects on influence maximization problem
-A. Caliò, A. Tagarelli, F. Bonchi]{https://doi.org/10.1145/3394231.3397908}
+A. Caliò, A. Tagarelli, F. Bonchi](https://doi.org/10.1145/3394231.3397908)
 
 
 published at the 12th ACM Web Science Conference (WebSci-2020).
