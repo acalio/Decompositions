@@ -1,12 +1,11 @@
-# Introduction 
-
-This project is developed as part  of the following research paper:
-
-[_Cores matter? An analysis of graph decomposition effects on influence maximization problem_
---- A. Caliò, A. Tagarelli, F. Bonchi](https://doi.org/10.1145/3394231.3397908)
+# Overview
 
 
-published at the 12th ACM Web Science Conference (WebSci-2020).
+This project is developed as part of the following research paper:
+
+[A. Caliò, A. Tagarelli, F. Bonchi (2020). Cores matter? An analysis of graph decomposition effects on influence maximization problem. In Procs. of the 12th ACM Web Science Conference (WebSci-2020), July 6th - July 10th, 2020,  Southampton, UK](https://doi.org/10.1145/3394231.3397908).
+
+
 
 ## Abstract
 Estimating the spreading potential of nodes in a social network is an
@@ -76,22 +75,21 @@ You need to compile the project. Follow these steps.
 The following steps are needed to run the executable. 
 
     cd to/your/executable
-    ./deco input-graph output-graph decomposition-algorithm
+    ./deco input-graph output-file decomposition-algorithm
     
 
-- input-graph: is an edgelist file containing a directed (potentially weighted) network.
-- output-file: the file where the results are saved
-- decomposition-algorithm: one of the available decomposition
+- input-graph: the path to a file storing the edge-list of a directed (weighted) network
+- output-file: the path to a file storing results, i.e., $\langle  v, k \rangle$, where $v$ is the id of a node and $k$ the index assigned by the selected graph-decomposition algorithm
+- decomposition-algorithm: specifies a graph-decomposition algorithm. Available options:
+_kcore_, _kpeak_, _ktruss_, _neighcoreness_, _dgcore_.
 
 For instance, if you need to carry out a core-decomposition:
 
     ./deco input-edgelist results.txt kcore
     
 The program will store in results.txt the output of the computation.
-More specifically, in this case the file will contain a line <vertex id, core-index>
-for each node in the network.
 
-There are many other options available. To have a more comprehensive guide
+There are many other options available. To have a more comprehensive guide just
 issue the command:
     
     ./deco --help
