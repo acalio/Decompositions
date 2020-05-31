@@ -5,6 +5,7 @@ This project is developed as part of the following research paper:
 
 [A. Caliò, A. Tagarelli, F. Bonchi (2020). Cores matter? An analysis of graph decomposition effects on influence maximization problem. In Procs. of the 12th ACM Web Science Conference (WebSci-2020), July 6th - July 10th, 2020,  Southampton, UK](https://doi.org/10.1145/3394231.3397908).
 
+Please cite the above paper in any research publication you may produce using this code or data/analysis derived from it.
 
 
 ## Abstract
