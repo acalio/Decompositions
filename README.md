@@ -80,7 +80,7 @@ The following steps are needed to run the executable.
     
 
 - input-graph: the path to a file storing the edge-list of a directed (weighted) network
-- output-file: the path to a file storing results, i.e., $\langle  v, k \rangle$, where $v$ is the id of a node and $k$ the index assigned by the selected graph-decomposition algorithm
+- output-file: the path to a file storing results, i.e., <v, k>, where v is the id of a node and k the index assigned by the selected graph-decomposition algorithm
 - decomposition-algorithm: specifies a graph-decomposition algorithm. Available options:
 _kcore_, _kpeak_, _ktruss_, _neighcoreness_, _dgcore_.
 
