@@ -31,17 +31,8 @@ void DistanceGeneralizedCoreDecomposition::run(){
         degree[u] = hdeg.score(u);
         ++degreeBegin[degree[u]];
     });
-//    std::unique_ptr<HDegreeCentrality> hdeg = std::make_unique<HDegreeCentrality>(G,h,true);
-//    hdeg->run();
-//    G.forNodes([&](node u){
-//        degree[u] = hdeg->score(u);
-//        ++degreeBegin[degree[u]];
-//    });
-//
-//    reach_set.swap(hdeg->getReachSets());
+
     reach_set.swap(hdeg.getReachSets());
-    //remove pointer
-    //    hdeg.reset();
 
     index sum = 0; // 2) exclusive in-place prefix sum
     for (index i = 0; i < degreeBegin.size(); ++i) {
@@ -130,7 +121,6 @@ void DistanceGeneralizedCoreDecomposition::run(){
     maxCore = core;
 
     hasRun = true;
-    //    G_.reset();
 }
 
 
